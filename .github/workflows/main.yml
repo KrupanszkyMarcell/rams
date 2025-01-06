@@ -1,0 +1,33 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Docker login
+      uses: docker/login-action@v3.3.0
+      with:
+        registry: ghcr.io
+        username: smgl8
+        password: ${{ secrets.TOKEN }}
+    
+    - name: Build the Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        file: Dockerfile
+        push: true
+        tags: ghcr.io/KrupanszkyMarcell/rams:latest
