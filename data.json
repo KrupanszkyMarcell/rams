@@ -1,0 +1,52 @@
+{
+  "rams": [
+    {
+      "id": "ram1",
+      "brandname": "Corsair",
+      "speed": 3200,
+      "capacity": 16,
+      "generation": 5,
+      "latency": 16
+    },
+    {
+      "id": "ram2",
+      "brandname": "G.SKILL",
+      "speed": 3600,
+      "capacity": 32,
+      "generation": 4,
+      "latency": 14
+    },
+    {
+      "id": "ram3",
+      "brandname": "Kingston",
+      "speed": 2666,
+      "capacity": 8,
+      "generation": 3,
+      "latency": 18
+    },
+    {
+      "id": "ram4",
+      "brandname": "Crucial",
+      "speed": 2933,
+      "capacity": 16,
+      "generation": 4,
+      "latency": 15
+    },
+    {
+      "id": "ram5",
+      "brandname": "HyperX",
+      "speed": 3000,
+      "capacity": 32,
+      "generation": 5,
+      "latency": 12
+    },
+    {
+      "id": "ram6",
+      "brandname": "TeamGroup",
+      "speed": 3200,
+      "capacity": 8,
+      "generation": 4,
+      "latency": 17
+    }
+  ]
+}

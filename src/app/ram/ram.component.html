@@ -1,0 +1,45 @@
+@if(ram){
+    <div class="modal" tabindex="-1" style="display: block;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Adatok rögzítése</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cancel()"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="ramBrand" class="form-label">Márka</label>
+                  <input type="text" class="form-control" id="catName" [value]="ram.brandname"
+                    (change)="ram.brandname= getvalue($event)">
+                </div>
+                <div class="mb-3">
+                  <label for="ramSize" class="form-label">Mérete</label>
+                  <input class="form-control" type="number" id="breed" [value]="ram.capacity" (change)="ram.capacity = getNumberValue($event)">
+      
+                </div>
+                <div class="mb-3">
+                  <label for="ramSpeed" class="form-label">Sebesség</label>
+                  <input type="number" class="form-control" id="catAge" [value]="ram.speed"
+                    (change)="ram.speed = getNumberValue($event)">
+                </div>
+                <div class="mb-3">
+                  <label for="Ramlatency" class="form-label">Késleltetés</label>
+                  <input type="number" class="form-control" id="ownerName" [value]="ram.latency"
+                    (change)="ram.latency = getNumberValue($event)">
+                </div>
+                <div class="mb-3">
+                  <label for="ramgeneration" class="form-label">Generácio</label>
+                  <input type="number" class="form-control" id="ownerEmail" [value]="ram.generation"
+                    (change)="ram.generation = getNumberValue($event)">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="cancel()">Mégsem</button>
+              <button type="button" class="btn btn-success" (click)="save()">Mentés</button>
+            </div>
+          </div>
+        </div>
+      </div>
+}

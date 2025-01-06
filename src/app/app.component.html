@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="text-center mb-4">Cica regisztráció</h1>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="text-center">
+          <span (click)="newRam()">&#10010;</span>
+        </th>
+        <th scope="col">Márka</th>
+        <th scope="col">Méret</th>
+        <th scope="col">Sebbeség</th>
+        <th scope="col">Késleltetés</th>
+        <th scope="col">Generácio</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (ram of rams; track $index) {
+
+
+      <tr >
+        <th scope="row" class="text-center">
+          <span (click)="doModify(ram)" class="text-primary" style="cursor: pointer;">&#9998;</span>
+          <span (click)="doDelete(ram)" class="text-danger" style="cursor: pointer;">&#10008;</span>
+        </th>
+        <td>{{ ram.brandname }}</td>
+        <td>{{ ram.capacity }}</td>
+        <td>{{ ram.speed}}</td>
+        <td>{{ ram.latency }}</td>
+        <td>{{ ram.generation }}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>
+
+
+<app-ram [ram]="new == undefined  ? modify: new" (canceled)="new = undefined; modify = undefined;" (saved)="save($event)"></app-ram>
