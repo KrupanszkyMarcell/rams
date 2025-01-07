@@ -1,33 +1,19 @@
 name: Docker Image CI
-
 on:
   workflow_dispatch:
-
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
-
+    branches: ["main"]
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Docker login
-      uses: docker/login-action@v3.3.0
-      with:
-        registry: ghcr.io
-        username: KrupanszkyMarcell
-        password: ${{ secrets.TOKEN }}
-    
-    - name: Build the Docker image
-      uses: docker/build-push-action@v4
-      with:
-        context: .
-        file: Dockerfile
-        push: true
-        tags: ghcr.io/KrupanszkyMarcell/rams:latest
+      - run: |
+          echo "TAG=$(date +%s)" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+      - run: |
+          docker build . --file Dockerfile --tag ghcr.io/KrupanszkyMarcell/rams:$TAG --tag ghcr.io/KrupanszkyMarcell/rams:latest
+          docker login ghcr.io -u KrupanszkyMarcell -p ${{secrets.TOKEN}}
+          docker push ghcr.io/KrupanszkyMarcell/rams:$TAG
+          docker push ghcr.io/KrupanszkyMarcell/rams:latest
