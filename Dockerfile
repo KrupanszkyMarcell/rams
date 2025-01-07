@@ -5,4 +5,4 @@ RUN npm install
 RUN npm run build
 
 FROM httpd
-COPY --from=node /app/dist/rams-reg/browser /usr/local/apache2/htdocs
+COPY --from=node /app/dist/rams/browser /usr/local/apache2/htdocs
