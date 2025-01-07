@@ -13,7 +13,7 @@ jobs:
           echo "TAG=$(date +%s)" >> $GITHUB_ENV
       - uses: actions/checkout@v4
       - run: |
-          docker build . --file Dockerfile --tag ghcr.io/KrupanszkyMarcell/rams:$TAG --tag ghcr.io/KrupanszkyMarcell/rams:latest
-          docker login ghcr.io -u KrupanszkyMarcell -p ${{secrets.TOKEN}}
-          docker push ghcr.io/KrupanszkyMarcell/rams:$TAG
-          docker push ghcr.io/KrupanszkyMarcell/rams:latest
+          docker build . --file Dockerfile --tag ghcr.io/krupanszkymarcell/rams:$TAG --tag ghcr.io/krupanszkymarcell/rams:latest
+          docker login ghcr.io -u krupanszkymarcell -p ${{secrets.TOKEN}}
+          docker push ghcr.io/krupanszkymarcell/rams:$TAG
+          docker push ghcr.io/krupanszkymarcell/rams:latest
